@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NDVTechsys</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .view-details {
+      background-color: #0d47a1;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .view-details:hover {
+      background-color: #1565c0;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      position: relative;
+      animation: scaleIn 0.3s ease;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .close-btn:hover {
+      color: #000;
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0.9); }
+      to { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Ashish Ravipati</h1>
+      <ul class="nav-links">
+        <li><a href="#" class="nav-btn" onclick="showSection('home')">Home</a></li>
+        <li><a href="#" class="nav-btn" onclick="showSection('products')">Products</a></li>
+        <li><a href="#" class="nav-btn" onclick="showSection('about')">About</a></li>
+        <li><a href="#" class="nav-btn" onclick="showSection('contact')">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <section id="home" class="section-center">
+    <h1>Welcome</h1>
+    <p>Welcome to <strong>My web page</strong>, your go-to destination for an expertly curated product catalog designed to provide a seamless shopping experience. Our website showcases a diverse range of products, thoughtfully categorized to help you find exactly what you need quickly and easily. Each product listing includes high-resolution images, comprehensive descriptions, transparent pricing, and category details to assist you in making well-informed purchasing decisions. Built with responsive design principles, our site ensures that you can explore our offerings comfortably on any device—whether you're browsing on a desktop, tablet, or smartphone. Dive into our catalog and discover quality, variety, and convenience all in one place.</p>
+    <div class="slideshow-container">
+      <div class="slide fade"><img src="img-1.jpg" alt="Product 1" /></div>
+      <div class="slide fade"><img src="img-2.jpg" alt="Product 2" /></div>
+      <div class="slide fade"><img src="img-3.avif" alt="Product 3" /></div>
+    </div>
+    <div class="dots-container" style="text-align:center; margin-top: 10px;">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+  </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="section-center" style="display:none;">
+    <h2>Our Products</h2>
+    <div id="product-container" class="product-grid"></div>
+    </section>
+
+
+  <!-- PRODUCT MODAL -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title">Product Title</h3>
+      <p id="modal-price">Price: $0.00</p>
+      <p id="modal-category">Category: Unknown</p>
+      <p id="modal-description">Detailed product description goes here.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-center" style="display:none;">
+    <h2>About Me</h2>
+    <p>I'm Ashish Ravipati, a Computer Science Engineering student with a deep passion for developing smart, secure, and impactful software solutions. I specialize in full-stack development, UI/UX design, and machine learning, and I enjoy building systems that blend functionality with clean design.I believe in learning by doing—whether it's crafting responsive websites, building intelligent automation tools, or exploring anti-spoofing techniques in face recognition. I'm always eager to take on new challenges and push the boundaries of what I can create.Outside of coding, I enjoy exploring open-source projects, staying up to date with emerging tech, and refining my problem-solving skills.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-center" style="display:none;">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ashish Ravipati</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
